@@ -26,6 +26,9 @@ def detect(filename, cascade_file = "../lbpcascade_animeface.xml"):
     cv2.waitKey(0)
     cv2.imwrite("out.png", image)
 
+def get_ids(site, first, end):
+
+
 if len(sys.argv) != 2:
     sys.stderr.write("usage: detect.py <filename>\n")
     sys.exit(-1)
