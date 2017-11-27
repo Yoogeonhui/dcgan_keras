@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <!-- include 된 곳에서 Active되는 메뉴를 처리하기 위한 변수 -->
-<c:set var="page" value="main_page"/>
+<c:set var="page" value="login_page"/>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <head>
@@ -25,9 +25,43 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="${contextPath}/js/upper_page.js"></script>
+    <script>upper("로그인",null,null,null);</script>
 </head>
 
 <body>
+    <%@ include file="navbar.jsp" %>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <form method="post" action="${contextPath}/jsp/login.do">
+                    <div class="row center">
+                        <div class="input-field col s8 offset-s2">
+                            <input id="id" type="text" class="validate" required>
+                            <label for="id">ID</label>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="input-field col s8 offset-s2">
+                            <input id="pwd" type="password" class="validate" required>
+                            <label for="pwd" >PWD</label>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <input type="submit" class="waves-effect waves-light btn" value="로그인"/>
+                    </div>
+                </form>
 
+
+            </div>
+
+        </div>
+        <div class="row center">
+            <h2>혹은</h2>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+
+
+        </div>
+    </div>
 </body>
 </html>

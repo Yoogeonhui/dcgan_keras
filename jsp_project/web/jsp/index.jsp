@@ -56,6 +56,20 @@
                     웹상에서 돌아가게 해놨습니다.</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col s4 center">
+                <p class="light">근데 그거 아나요?</p>
+                <h1>이거 망했어요!!</h1>
+                <h7>결과가 진짜 볼품없어서..ㅠㅠ 시간을 더 준다면야 뭔갈 할텐데 결과가 정말 X를 눌러 Joy를 표하고 싶네요..</h7>
+
+            </div>
+            <div class="col s8 center">
+                <p class="light">괴생명체 한마리가 당신을 반기고 있습니다.</p>
+                <img src="${contextPath}/image/mangham.png"/>
+                <p class="light"><s>거울을 보는 것 같은 놀라운 체험 어차피 도찐개찐</s></p>
+                <p>아몰랑 시간을 더 주세요</p>
+            </div>
+        </div>
         <br>
     </div>
     <%@ include file="footer.jsp" %>
