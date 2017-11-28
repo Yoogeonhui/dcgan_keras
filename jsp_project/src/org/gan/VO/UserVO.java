@@ -1,10 +1,30 @@
 package org.gan.VO;
 
+
 public class UserVO {
     private String id;
     private String name;
-    private String nickname;
     private String pwd;
+    private String facebookID;
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    private int uid;
+
+
+    public String getFacebookID() {
+        return facebookID;
+    }
+
+    public void setFacebookID(String facebookID) {
+        this.facebookID = facebookID;
+    }
 
     public String getPwd() {
         return pwd;
@@ -31,26 +51,16 @@ public class UserVO {
         this.name = name;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public UserVO(){}
 
     public UserVO(String id, String name, String nickname) {
         this.id = id;
         this.name = name;
-        this.nickname = nickname;
     }
 
     public UserVO(String id, String name, String nickname, String pwd) {
         this.id = id;
         this.name = name;
-        this.nickname = nickname;
         this.pwd = pwd;
     }
 }

@@ -7,3 +7,6 @@
 #sidenav-overlay {
     z-index: 996;
 }
+.higher-zindex {
+    z-index: 995;
+}

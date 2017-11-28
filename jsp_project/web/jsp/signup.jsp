@@ -25,50 +25,46 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="${contextPath}/js/upper_page.js"></script>
-    <script>upper("로그인",null,null,null);</script>
+
 </head>
 
 <body>
     <%@ include file="navbar.jsp" %>
+    <script>upper("회원가입",null,null);</script>
     <div class="container">
         <div class="row">
             <div class="col s12">
-            <form method="post" action="${contextPath}/jsp/login.do">
+            <form method="post" action="${contextPath}/signup.do">
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <input id="id" type="text" class="validate">
-                        <label for="id" data-error="wrong" data-success="right" required>ID</label>
+                        <input id="id" type="text" class="validate" required>
+                        <label for="id">ID</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <input id="nickname" type="text" class="validate">
-                        <label for="nickname" data-error="wrong" data-success="right" required>ID</label>
+                        <input id="nickname" type="text" class="validate" required>
+                        <label for="nickname">닉네임</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="pwd" type="password" class="validate">
-                        <label for="id" data-error="wrong" data-success="right" required>PWD</label>
+                        <input id="pwd" type="password" class="validate" required>
+                        <label for="pwd">비밀번호</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="pwd_ver" type="password" class="validate">
-                        <label for="pwd_ver" required>Password</label>
+                        <input id="pwd_ver" type="password" class="validate" required>
+                        <label for="pwd_ver">비밀번호 확인</label>
                     </div>
                 </div>
                 <div class="row center">
-                    <input type="submit" class="waves-effect waves-light btn" text="가입">
+                    <input type="submit" class="waves-effect waves-light btn" value="가입">
                 </div>
             </div>
         </form>
-
-    </div>
-        <div class="row">
-            <div class="col s12">
-                <p>혹은!</p>
-
-            </div>
+        </div>
         </div>
     </div>
+    <%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -10,7 +10,7 @@
 
 <!DOCTYPE html>
 <html>
-<!-- include 된 곳에서 Active되는 메뉴를 처리하기 위한 변수 -->
+
 <c:set var="page" value="login_page"/>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -24,15 +24,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="${contextPath}/js/post_in_js.js"></script>
     <script src="${contextPath}/js/upper_page.js"></script>
-    <script>upper("로그인",null,null,null);</script>
 </head>
 
 <body>
     <%@ include file="navbar.jsp" %>
+    <%@ include file="modal.jsp" %>
+
+    <script>upper("로그인",'아직 회원이 아니신가요?','회원가입');
+    $('#parallax_button').attr('href', '${contextPath}/jsp/signup.jsp');
+    </script>
+
+
     <div class="container">
         <div class="row">
             <div class="col s12">
+                <c:if test="${user==null}">
                 <form method="post" action="${contextPath}/jsp/login.do">
                     <div class="row center">
                         <div class="input-field col s8 offset-s2">
@@ -50,18 +58,23 @@
                         <input type="submit" class="waves-effect waves-light btn" value="로그인"/>
                     </div>
                 </form>
-
-
+                </c:if>
             </div>
 
         </div>
         <div class="row center">
             <h2>혹은</h2>
-            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-            </fb:login-button>
-
-
+            <c:if test="${path == null}">
+                <c:set var="path" value="${contextPath}/jsp/index.jsp"/>
+            </c:if>
+            <a class="waves-effect waves-light btn-large" href="https://www.facebook.com/v2.11/dialog/oauth?client_id=${appid}&redirect_uri=${redirect}faceauth.do?path=${path}">Facebook 로그인/가입</a>
         </div>
     </div>
+<c:if test="${error!=null}">
+    <script>
+        load_modal('에러', '${error}');
+    </script>
+</c:if>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

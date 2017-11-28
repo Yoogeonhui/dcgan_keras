@@ -13,7 +13,7 @@ public class CheckAction implements IAction{
         HttpSession sess = req.getSession();
         UserVO user = (UserVO)sess.getAttribute("user");
         if(user == null){
-            RequestDispatcher rd = req.getRequestDispatcher("./login.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("jsp/login.jsp");
             rd.forward(req,res);
         }else{
             String path = (String)req.getAttribute("path");

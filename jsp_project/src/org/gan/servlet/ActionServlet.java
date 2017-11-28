@@ -1,7 +1,6 @@
 package org.gan.servlet;
 
-import org.gan.action.CheckAction;
-import org.gan.action.IAction;
+import org.gan.action.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,6 +29,11 @@ public class ActionServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         actions.put("check", new CheckAction());
+        actions.put("faceauth", new FacebookAuthAction());
+        actions.put("login", new LoginAction());
+        actions.put("facecallback", new FacebookCallback());
+        actions.put("logout", new LogoutAction());
+        actions.put("signup", new SignupAction());
     }
 
     private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

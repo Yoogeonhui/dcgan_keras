@@ -7,10 +7,9 @@ function set_or_remove(element, content){
     }
 
 }
-function upper(title, description, button, button_url){
+function upper(title, description, button){
     set_or_remove($('#parallax_title'), title);
     set_or_remove($('#parallax_button'), button);
-    $('#parallax_button').href = button_url;
     set_or_remove($('#parallax_desc'), description);
 }
 

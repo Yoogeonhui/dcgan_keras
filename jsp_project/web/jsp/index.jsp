@@ -31,7 +31,9 @@
 <body>
     <!-- navbar include하기 -->
     <%@ include file="navbar.jsp" %>
-    <script>upper("DCGAN을 활용한 사이트",null,'시작하기','${contextPath}/jsp/dcgan.jsp');</script>
+    <script>upper("DCGAN을 활용한 사이트",null,'시작하기');
+    $('#parallax_button').attr('href', '${contextPath}/jsp/dcgan.jsp');
+    </script>
     <br>
     <div class="container">
         <div class="row">
