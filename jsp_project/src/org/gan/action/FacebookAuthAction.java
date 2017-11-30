@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 public class FacebookAuthAction implements IAction{
     @Override
@@ -22,14 +23,12 @@ public class FacebookAuthAction implements IAction{
             HttpSession sess = req.getSession();
             sess.setAttribute("face", facebook);
             sess.setAttribute("pathAfterFB", path);
-            StringBuffer callbackURL = req.getRequestURL();
-            int index = callbackURL.lastIndexOf("/");
-            callbackURL.replace(index, callbackURL.length(), "").append("/facecallback.do");
-            res.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+            res.sendRedirect(facebook.getOAuthAuthorizationURL(baseutil.hostname.substring(0,baseutil.hostname.length()-1)+req.getContextPath()+"/facecallback.do"));
         }
         catch(Exception e){
-            req.setAttribute("error", e.getMessage());
-            RequestDispatcher rd = req.getRequestDispatcher("jsp/login.jsp");
+            Writer a =res.getWriter();
+            a.write(e.getMessage());
+            RequestDispatcher rd = req.getRequestDispatcher("jsp/login.jsp?error="+e.getMessage());
             rd.forward(req, res);
         }
     }

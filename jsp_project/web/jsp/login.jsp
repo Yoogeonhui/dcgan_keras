@@ -13,7 +13,9 @@
 
 <c:set var="page" value="login_page"/>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+<c:if test="${path == null}">
+    <c:set var="path" value="${contextPath}/jsp/index.jsp"/>
+</c:if>
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -41,38 +43,39 @@
         <div class="row">
             <div class="col s12">
                 <c:if test="${user==null}">
-                <form method="post" action="${contextPath}/jsp/login.do">
+                <form method="post" action="${contextPath}/login.do">
                     <div class="row center">
                         <div class="input-field col s8 offset-s2">
-                            <input id="id" type="text" class="validate" required>
+                            <input id="id" name="id" type="text" class="validate" required>
                             <label for="id">ID</label>
                         </div>
                     </div>
                     <div class="row center">
                         <div class="input-field col s8 offset-s2">
-                            <input id="pwd" type="password" class="validate" required>
+                            <input id="pwd" name="pwd" type="password" class="validate" required>
                             <label for="pwd" >PWD</label>
                         </div>
                     </div>
+                    <input type="hidden" name="path" value="${path}">
                     <div class="row center">
                         <input type="submit" class="waves-effect waves-light btn" value="로그인"/>
                     </div>
                 </form>
                 </c:if>
             </div>
-
         </div>
         <div class="row center">
             <h2>혹은</h2>
-            <c:if test="${path == null}">
-                <c:set var="path" value="${contextPath}/jsp/index.jsp"/>
-            </c:if>
-            <a class="waves-effect waves-light btn-large" href="https://www.facebook.com/v2.11/dialog/oauth?client_id=${appid}&redirect_uri=${redirect}faceauth.do?path=${path}">Facebook 로그인/가입</a>
+
+            <a class="waves-effect waves-light btn-large" href="https://www.facebook.com/v2.11/dialog/oauth?client_id=${appid}&redirect_uri=${redirect}${contextPath}/faceauth.do?path=${path}">Facebook 로그인/가입</a>
         </div>
     </div>
 <c:if test="${error!=null}">
     <script>
-        load_modal('에러', '${error}');
+        $(document).ready(function(){
+            load_modal('에러', '${error}');
+        });
+
     </script>
 </c:if>
 <%@ include file="footer.jsp" %>

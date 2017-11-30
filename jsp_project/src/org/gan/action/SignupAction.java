@@ -17,15 +17,16 @@ public class SignupAction implements IAction {
             String pwd_ver = req.getParameter("pwd_ver");
             if(!pwd.equals(pwd_ver))
                 throw new Exception("비밀번호가 일치하지 않습니다.");
-            String name = req.getParameter("name");
             String nickname = req.getParameter("nickname");
 
             System.out.println("id: " + id);
             System.out.println("pwd: " + pwd);
-            System.out.println("name: " + name);
             System.out.println("nickname: " + nickname);
 
-            UserVO user = new UserVO(id, name, nickname, pwd);
+            UserVO user = new UserVO();
+            user.setId(id);
+            user.setPwd(pwd);
+            user.setName(nickname);
 
             UserService service = new UserService();
             service.signup(user);

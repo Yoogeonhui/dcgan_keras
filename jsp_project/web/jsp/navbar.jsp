@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <c:set var="appid" value="511995439166098" />
-<c:set var="redirect" value="http://localhost:8080/"/>
+<c:set var="redirect" value="http://ygserver.oa.to:8080/"/>
 <div class="navbar-fixed">
 
     <nav>
@@ -17,8 +17,8 @@
             <a href="#" data-activates="side_bar" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li class="main_page waves-effect"><a href="${contextPath}/jsp/index.jsp">Home</a></li>
-                <li class="waves-effect" ><a href="${contextPath}/jsp/dcgan.jsp">GAN</a></li>
-                <li class="waves-effect"><a href="#">Test</a></li>
+                <li class="waves-effect gan" ><a href="${contextPath}/jsp/dcgan.jsp">GAN</a></li>
+                <li class="waves-effect gan_show"><a href="${contextPath}/show.do">Results</a></li>
                 <c:if test="${user!=null}">
                     <li class="waves-effect login_page"><a href="${contextPath}/logout.do">${user.name}님 Logout</a></li>
                 </c:if>
@@ -28,9 +28,14 @@
             </ul>
             <ul class="side-nav teal" id="side_bar">
                 <li class="main_page"><a href="${contextPath}/jsp/index.jsp">Home</a></li>
-                <li><a href="index.jsp">GAN</a></li>
-                <li><a href="#">Test</a></li>
-                <li><a href="#">Login</a></li>
+                <li class="gan"><a href="${contextPath}/jsp/dcgan.jsp">GAN</a></li>
+                <li class="gan_show"><a href="${contextPath}/show.do">Results</a></li>
+                <c:if test="${user!=null}">
+                    <li class="login_page"><a href="${contextPath}/logout.do">${user.name}님 Logout</a></li>
+                </c:if>
+                <c:if test="${user==null}">
+                    <li class="login_page"><a href="${contextPath}/jsp/login.jsp">Login</a></li>
+                </c:if>
             </ul>
         </div>
     </nav>

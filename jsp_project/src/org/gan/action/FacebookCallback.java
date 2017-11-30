@@ -19,6 +19,7 @@ public class FacebookCallback implements IAction {
         Facebook facebook = (Facebook) sess.getAttribute("face");
         String oauthCode = req.getParameter("code");
         try{
+
             facebook.getOAuthAccessToken(oauthCode);
             UserService service = new UserService();
             //있으면 로그인으로 처리

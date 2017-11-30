@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/">
-    <Resource name="jdbc/mysql" auth="Container" type="javax.sql.DataSource" username="root" password="root"
+    <Resource name="jdbc/mysql" auth="Container" type="javax.sql.DataSource" username="root" password="you2000"
               driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/jsp_project" maxTotal="5" maxIdle="3" />
 </Context>

@@ -34,6 +34,9 @@ public class ActionServlet extends HttpServlet {
         actions.put("facecallback", new FacebookCallback());
         actions.put("logout", new LogoutAction());
         actions.put("signup", new SignupAction());
+        actions.put("upload", new UploadAction());
+        actions.put("uploadface", new UploadtoFacebook());
+        actions.put("show", new ShowAction());
     }
 
     private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

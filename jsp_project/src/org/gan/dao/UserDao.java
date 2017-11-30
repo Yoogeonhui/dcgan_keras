@@ -17,7 +17,7 @@ public class UserDao {
     }
     public UserVO searchUser(UserVO vo) throws Exception {
         PreparedStatement pstmt = null;
-        String sql = "SELECT * FROM USER WHERE ID=? AND PWD=?";
+        String sql = "SELECT * FROM USER WHERE ID=? AND password=?";
 
         ResultSet rs = null;
         try {
@@ -29,15 +29,13 @@ public class UserDao {
             UserVO result = null;
 
             if (rs.next()) {
-                result = new UserVO();
-                result.setId(rs.getString(1));
-                result.setName(rs.getString(3));
+                result = baseutil.getVO(rs);
             }
 
             return result;
         } catch (Exception e) {
             e.printStackTrace();
-            throw new Exception("화면의 사용자 조회 중 오류가 발생하였습니다.");
+            throw new Exception("사용자 조회 중 오류가 발생하였습니다.");
         } finally {
             if (rs != null) rs.close();
             if (pstmt != null) pstmt.close();

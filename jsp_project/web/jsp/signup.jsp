@@ -30,6 +30,7 @@
 
 <body>
     <%@ include file="navbar.jsp" %>
+    <%@ include file ="modal.jsp" %>
     <script>upper("회원가입",null,null);</script>
     <div class="container">
         <div class="row">
@@ -37,23 +38,23 @@
             <form method="post" action="${contextPath}/signup.do">
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <input id="id" type="text" class="validate" required>
+                        <input id="id" name="id" type="text" class="validate" required>
                         <label for="id">ID</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <input id="nickname" type="text" class="validate" required>
+                        <input id="nickname" name="nickname" type="text" class="validate" required>
                         <label for="nickname">닉네임</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="pwd" type="password" class="validate" required>
+                        <input id="pwd" name="pwd" type="password" class="validate" required>
                         <label for="pwd">비밀번호</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="pwd_ver" type="password" class="validate" required>
+                        <input id="pwd_ver" name="pwd_ver" type="password" class="validate" required>
                         <label for="pwd_ver">비밀번호 확인</label>
                     </div>
                 </div>
@@ -66,5 +67,14 @@
         </div>
     </div>
     <%@ include file="footer.jsp" %>
+    <c:if test="${error!=null}">
+        <script>
+            $(document).ready(function(){
+                load_modal('에러', '${error}');
+                $('#modal').modal();
+            })
+
+        </script>
+    </c:if>
 </body>
 </html>

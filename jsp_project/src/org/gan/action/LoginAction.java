@@ -24,7 +24,7 @@ public class LoginAction implements IAction{
 
             HttpSession session = req.getSession();
             session.setAttribute("user", result);
-            RequestDispatcher rd = req.getRequestDispatcher("jsp/home.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("jsp/index.jsp");
             rd.forward(req, res);
         }catch(Exception e){
             e.printStackTrace();

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <!-- Modal Structure -->
-<div id="modal" class="modal">
+<div id="modal1" class="modal">
     <div class="modal-content">
         <h4 id="modal-title">Modal Header</h4>
         <p id="modal-text">A bunch of text</p>
@@ -17,10 +17,15 @@
     </div>
 </div>
 <script>
+    $(document).ready(function(){
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
     function load_modal(title,text){
         $('#modal-title').text(title);
         $('#modal-text').text(text);
-        $('#modal').modal('open');
+        $('#modal1').modal('open');
     }
+
 </script>
 </html>

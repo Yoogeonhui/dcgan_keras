@@ -57,7 +57,6 @@ public class UserVO {
         this.id = id;
         this.name = name;
     }
-
     public UserVO(String id, String name, String nickname, String pwd) {
         this.id = id;
         this.name = name;
