@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Anime_extraction/Anime_extraction.iml" filepath="$PROJECT_DIR$/Anime_extraction/Anime_extraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DCGAN/DCGAN.iml" filepath="$PROJECT_DIR$/DCGAN/DCGAN.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp_project/jsp_project.iml" filepath="$PROJECT_DIR$/jsp_project/jsp_project.iml" />
     </modules>
   </component>
